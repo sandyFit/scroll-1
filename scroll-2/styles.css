@@ -1,0 +1,51 @@
+* {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  clip-path: inset(0 0 0 0);
+  svg {
+    height: 120vh;
+    left: calc(50vw - 60vh);
+    transition: 0.1s;
+    path + path {
+      transform-origin: center center;
+      animation: turnIt 4s infinite ease-in-out alternate;
+    }
+  }
+  &:first-of-type {
+    position: relative;
+    z-index: 1;
+    background: hotpink;
+    svg {
+      position: sticky;
+      top: 0;
+      margin-bottom: -120vh;
+    }
+  }
+  &:nth-of-type(2) {
+    background: black;
+    position: relative;
+    height: 300vh;
+    top: -120vh;
+    svg {
+      position: sticky;
+      fill: hotpink;
+      top: 0;
+    }
+  }
+}
+
+@keyframes turnIt {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10vh) scale(1.15);
+  }
+}
